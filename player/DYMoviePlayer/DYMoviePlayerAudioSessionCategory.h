@@ -1,9 +1,4 @@
-//
-//  NGMoviePlayerAudioSessionCategory.h
-//  NGMoviePlayer
-//
-//  Created by Tretter Matthias on 29.03.12.
-//  Copyright (c) 2012 NOUS Wissensmanagement GmbH. All rights reserved.
+ 
 //
 #import <AVFoundation/AVFoundation.h>
 
