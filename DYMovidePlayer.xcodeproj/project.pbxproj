@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C083D1619AB101A00111FEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C083D1519AB101A00111FEF /* Foundation.framework */; };
+		2C083D1819AB101A00111FEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C083D1719AB101A00111FEF /* CoreGraphics.framework */; };
+		2C083D1A19AB101A00111FEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C083D1919AB101A00111FEF /* UIKit.framework */; };
+		2C083D2019AB101A00111FEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C083D1E19AB101A00111FEF /* InfoPlist.strings */; };
+		2C083D2219AB101A00111FEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D2119AB101A00111FEF /* main.m */; };
+		2C083D2619AB101A00111FEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D2519AB101A00111FEF /* AppDelegate.m */; };
+		2C083D2819AB101A00111FEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C083D2719AB101A00111FEF /* Images.xcassets */; };
+		2C083D2F19AB101A00111FEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C083D2E19AB101A00111FEF /* XCTest.framework */; };
+		2C083D3019AB101A00111FEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C083D1519AB101A00111FEF /* Foundation.framework */; };
+		2C083D3119AB101A00111FEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C083D1919AB101A00111FEF /* UIKit.framework */; };
+		2C083D3919AB101A00111FEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C083D3719AB101A00111FEF /* InfoPlist.strings */; };
+		2C083D3B19AB101A00111FEF /* DYMovidePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D3A19AB101A00111FEF /* DYMovidePlayerTests.m */; };
+		2C083D4D19AB1AFE00111FEF /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D4C19AB1AFE00111FEF /* PlayerViewController.m */; };
+		2C083D5F19AB23F800111FEF /* DYMoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D5919AB23F800111FEF /* DYMoviePlayer.m */; };
+		2C083D6019AB23F800111FEF /* DYMoviePlayerLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D5D19AB23F800111FEF /* DYMoviePlayerLayerView.m */; };
+		2C083D6619AB241000111FEF /* DYMovieControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D6319AB241000111FEF /* DYMovieControllerView.m */; };
+		2C083D6719AB241000111FEF /* DYMoviePlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D6519AB241000111FEF /* DYMoviePlayerView.m */; };
+		2C083D6A19AB248E00111FEF /* DYMoviePlayerPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D6919AB248E00111FEF /* DYMoviePlayerPlaceholderView.m */; };
+		2C083D6E19AB337000111FEF /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C083D6D19AB337000111FEF /* TestViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C083D3219AB101A00111FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C083D0A19AB101A00111FEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C083D1119AB101A00111FEF;
+			remoteInfo = DYMovidePlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C083D1219AB101A00111FEF /* DYMovidePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYMovidePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C083D1519AB101A00111FEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C083D1719AB101A00111FEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C083D1919AB101A00111FEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2C083D1D19AB101A00111FEF /* DYMovidePlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DYMovidePlayer-Info.plist"; sourceTree = "<group>"; };
+		2C083D1F19AB101A00111FEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C083D2119AB101A00111FEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C083D2319AB101A00111FEF /* DYMovidePlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DYMovidePlayer-Prefix.pch"; sourceTree = "<group>"; };
+		2C083D2419AB101A00111FEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2C083D2519AB101A00111FEF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2C083D2719AB101A00111FEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2C083D2D19AB101A00111FEF /* DYMovidePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYMovidePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C083D2E19AB101A00111FEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2C083D3619AB101A00111FEF /* DYMovidePlayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DYMovidePlayerTests-Info.plist"; sourceTree = "<group>"; };
+		2C083D3819AB101A00111FEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C083D3A19AB101A00111FEF /* DYMovidePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMovidePlayerTests.m; sourceTree = "<group>"; };
+		2C083D4B19AB1AFE00111FEF /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		2C083D4C19AB1AFE00111FEF /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		2C083D5819AB23F800111FEF /* DYMoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayer.h; sourceTree = "<group>"; };
+		2C083D5919AB23F800111FEF /* DYMoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYMoviePlayer.m; sourceTree = "<group>"; };
+		2C083D5A19AB23F800111FEF /* DYMoviePlayerAudioSessionCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayerAudioSessionCategory.h; sourceTree = "<group>"; };
+		2C083D5B19AB23F800111FEF /* DYMoviePlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayerDelegate.h; sourceTree = "<group>"; };
+		2C083D5C19AB23F800111FEF /* DYMoviePlayerLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayerLayerView.h; sourceTree = "<group>"; };
+		2C083D5D19AB23F800111FEF /* DYMoviePlayerLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYMoviePlayerLayerView.m; sourceTree = "<group>"; };
+		2C083D5E19AB23F800111FEF /* DYMoviePlayerVideoGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayerVideoGravity.h; sourceTree = "<group>"; };
+		2C083D6219AB241000111FEF /* DYMovieControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMovieControllerView.h; sourceTree = "<group>"; };
+		2C083D6319AB241000111FEF /* DYMovieControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYMovieControllerView.m; sourceTree = "<group>"; };
+		2C083D6419AB241000111FEF /* DYMoviePlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayerView.h; sourceTree = "<group>"; };
+		2C083D6519AB241000111FEF /* DYMoviePlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYMoviePlayerView.m; sourceTree = "<group>"; };
+		2C083D6819AB248E00111FEF /* DYMoviePlayerPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYMoviePlayerPlaceholderView.h; sourceTree = "<group>"; };
+		2C083D6919AB248E00111FEF /* DYMoviePlayerPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYMoviePlayerPlaceholderView.m; sourceTree = "<group>"; };
+		2C083D6C19AB337000111FEF /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		2C083D6D19AB337000111FEF /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C083D0F19AB101A00111FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C083D1819AB101A00111FEF /* CoreGraphics.framework in Frameworks */,
+				2C083D1A19AB101A00111FEF /* UIKit.framework in Frameworks */,
+				2C083D1619AB101A00111FEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C083D2A19AB101A00111FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C083D2F19AB101A00111FEF /* XCTest.framework in Frameworks */,
+				2C083D3119AB101A00111FEF /* UIKit.framework in Frameworks */,
+				2C083D3019AB101A00111FEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C083D0919AB101A00111FEF = {
+			isa = PBXGroup;
+			children = (
+				2C083D4419AB104800111FEF /* player */,
+				2C083D1B19AB101A00111FEF /* DYMovidePlayer */,
+				2C083D3419AB101A00111FEF /* DYMovidePlayerTests */,
+				2C083D1419AB101A00111FEF /* Frameworks */,
+				2C083D1319AB101A00111FEF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C083D1319AB101A00111FEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D1219AB101A00111FEF /* DYMovidePlayer.app */,
+				2C083D2D19AB101A00111FEF /* DYMovidePlayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C083D1419AB101A00111FEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D1519AB101A00111FEF /* Foundation.framework */,
+				2C083D1719AB101A00111FEF /* CoreGraphics.framework */,
+				2C083D1919AB101A00111FEF /* UIKit.framework */,
+				2C083D2E19AB101A00111FEF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C083D1B19AB101A00111FEF /* DYMovidePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D2419AB101A00111FEF /* AppDelegate.h */,
+				2C083D2519AB101A00111FEF /* AppDelegate.m */,
+				2C083D2719AB101A00111FEF /* Images.xcassets */,
+				2C083D1C19AB101A00111FEF /* Supporting Files */,
+				2C083D4B19AB1AFE00111FEF /* PlayerViewController.h */,
+				2C083D4C19AB1AFE00111FEF /* PlayerViewController.m */,
+				2C083D6C19AB337000111FEF /* TestViewController.h */,
+				2C083D6D19AB337000111FEF /* TestViewController.m */,
+			);
+			path = DYMovidePlayer;
+			sourceTree = "<group>";
+		};
+		2C083D1C19AB101A00111FEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D1D19AB101A00111FEF /* DYMovidePlayer-Info.plist */,
+				2C083D1E19AB101A00111FEF /* InfoPlist.strings */,
+				2C083D2119AB101A00111FEF /* main.m */,
+				2C083D2319AB101A00111FEF /* DYMovidePlayer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C083D3419AB101A00111FEF /* DYMovidePlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D3A19AB101A00111FEF /* DYMovidePlayerTests.m */,
+				2C083D3519AB101A00111FEF /* Supporting Files */,
+			);
+			path = DYMovidePlayerTests;
+			sourceTree = "<group>";
+		};
+		2C083D3519AB101A00111FEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D3619AB101A00111FEF /* DYMovidePlayerTests-Info.plist */,
+				2C083D3719AB101A00111FEF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C083D4419AB104800111FEF /* player */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D5719AB23F800111FEF /* DYMoviePlayer */,
+				2C083D6119AB241000111FEF /* DYMovieLayout */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		2C083D5719AB23F800111FEF /* DYMoviePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D5819AB23F800111FEF /* DYMoviePlayer.h */,
+				2C083D5919AB23F800111FEF /* DYMoviePlayer.m */,
+				2C083D5C19AB23F800111FEF /* DYMoviePlayerLayerView.h */,
+				2C083D5D19AB23F800111FEF /* DYMoviePlayerLayerView.m */,
+				2C083D5A19AB23F800111FEF /* DYMoviePlayerAudioSessionCategory.h */,
+				2C083D5B19AB23F800111FEF /* DYMoviePlayerDelegate.h */,
+				2C083D5E19AB23F800111FEF /* DYMoviePlayerVideoGravity.h */,
+			);
+			path = DYMoviePlayer;
+			sourceTree = "<group>";
+		};
+		2C083D6119AB241000111FEF /* DYMovieLayout */ = {
+			isa = PBXGroup;
+			children = (
+				2C083D6219AB241000111FEF /* DYMovieControllerView.h */,
+				2C083D6319AB241000111FEF /* DYMovieControllerView.m */,
+				2C083D6419AB241000111FEF /* DYMoviePlayerView.h */,
+				2C083D6519AB241000111FEF /* DYMoviePlayerView.m */,
+				2C083D6819AB248E00111FEF /* DYMoviePlayerPlaceholderView.h */,
+				2C083D6919AB248E00111FEF /* DYMoviePlayerPlaceholderView.m */,
+			);
+			path = DYMovieLayout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C083D1119AB101A00111FEF /* DYMovidePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C083D3E19AB101A00111FEF /* Build configuration list for PBXNativeTarget "DYMovidePlayer" */;
+			buildPhases = (
+				2C083D0E19AB101A00111FEF /* Sources */,
+				2C083D0F19AB101A00111FEF /* Frameworks */,
+				2C083D1019AB101A00111FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DYMovidePlayer;
+			productName = DYMovidePlayer;
+			productReference = 2C083D1219AB101A00111FEF /* DYMovidePlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C083D2C19AB101A00111FEF /* DYMovidePlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C083D4119AB101A00111FEF /* Build configuration list for PBXNativeTarget "DYMovidePlayerTests" */;
+			buildPhases = (
+				2C083D2919AB101A00111FEF /* Sources */,
+				2C083D2A19AB101A00111FEF /* Frameworks */,
+				2C083D2B19AB101A00111FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C083D3319AB101A00111FEF /* PBXTargetDependency */,
+			);
+			name = DYMovidePlayerTests;
+			productName = DYMovidePlayerTests;
+			productReference = 2C083D2D19AB101A00111FEF /* DYMovidePlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C083D0A19AB101A00111FEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = soooner;
+				TargetAttributes = {
+					2C083D2C19AB101A00111FEF = {
+						TestTargetID = 2C083D1119AB101A00111FEF;
+					};
+				};
+			};
+			buildConfigurationList = 2C083D0D19AB101A00111FEF /* Build configuration list for PBXProject "DYMovidePlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C083D0919AB101A00111FEF;
+			productRefGroup = 2C083D1319AB101A00111FEF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C083D1119AB101A00111FEF /* DYMovidePlayer */,
+				2C083D2C19AB101A00111FEF /* DYMovidePlayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C083D1019AB101A00111FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C083D2019AB101A00111FEF /* InfoPlist.strings in Resources */,
+				2C083D2819AB101A00111FEF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C083D2B19AB101A00111FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C083D3919AB101A00111FEF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C083D0E19AB101A00111FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C083D6719AB241000111FEF /* DYMoviePlayerView.m in Sources */,
+				2C083D6A19AB248E00111FEF /* DYMoviePlayerPlaceholderView.m in Sources */,
+				2C083D5F19AB23F800111FEF /* DYMoviePlayer.m in Sources */,
+				2C083D4D19AB1AFE00111FEF /* PlayerViewController.m in Sources */,
+				2C083D2619AB101A00111FEF /* AppDelegate.m in Sources */,
+				2C083D6019AB23F800111FEF /* DYMoviePlayerLayerView.m in Sources */,
+				2C083D6E19AB337000111FEF /* TestViewController.m in Sources */,
+				2C083D6619AB241000111FEF /* DYMovieControllerView.m in Sources */,
+				2C083D2219AB101A00111FEF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C083D2919AB101A00111FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C083D3B19AB101A00111FEF /* DYMovidePlayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C083D3319AB101A00111FEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C083D1119AB101A00111FEF /* DYMovidePlayer */;
+			targetProxy = 2C083D3219AB101A00111FEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C083D1E19AB101A00111FEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C083D1F19AB101A00111FEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2C083D3719AB101A00111FEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C083D3819AB101A00111FEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C083D3C19AB101A00111FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2C083D3D19AB101A00111FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C083D3F19AB101A00111FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DYMovidePlayer/DYMovidePlayer-Prefix.pch";
+				INFOPLIST_FILE = "DYMovidePlayer/DYMovidePlayer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2C083D4019AB101A00111FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DYMovidePlayer/DYMovidePlayer-Prefix.pch";
+				INFOPLIST_FILE = "DYMovidePlayer/DYMovidePlayer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2C083D4219AB101A00111FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DYMovidePlayer.app/DYMovidePlayer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DYMovidePlayer/DYMovidePlayer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DYMovidePlayerTests/DYMovidePlayerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2C083D4319AB101A00111FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DYMovidePlayer.app/DYMovidePlayer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DYMovidePlayer/DYMovidePlayer-Prefix.pch";
+				INFOPLIST_FILE = "DYMovidePlayerTests/DYMovidePlayerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C083D0D19AB101A00111FEF /* Build configuration list for PBXProject "DYMovidePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C083D3C19AB101A00111FEF /* Debug */,
+				2C083D3D19AB101A00111FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C083D3E19AB101A00111FEF /* Build configuration list for PBXNativeTarget "DYMovidePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C083D3F19AB101A00111FEF /* Debug */,
+				2C083D4019AB101A00111FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2C083D4119AB101A00111FEF /* Build configuration list for PBXNativeTarget "DYMovidePlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C083D4219AB101A00111FEF /* Debug */,
+				2C083D4319AB101A00111FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C083D0A19AB101A00111FEF /* Project object */;
+}
