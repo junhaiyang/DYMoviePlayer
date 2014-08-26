@@ -1,17 +1,16 @@
  
 #import "DYMoviePlayer.h"
+
+#import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "DYMoviePlayerView.h"
 
 static char playerItemStatusContext;
 static char playerItemDurationContext;
 static char playerCurrentItemContext;
 static char playerRateContext;
-
-@interface DYMoviePlayerView()
-
-@property (nonatomic,strong,readwrite) DYMoviePlayer *player;
-
-@end
+ 
 
 
 @interface DYMoviePlayer () {
@@ -51,7 +50,12 @@ static char playerRateContext;
 @implementation DYMoviePlayer
 
 @synthesize player = _player;
-@synthesize view;
+@synthesize control;
+@synthesize autostartWhenReady=_autostartWhenReady;
+@synthesize initialPlaybackTime= _initialPlaybackTime;
+@synthesize delegate=_delegate;
+@synthesize URL = _URL;
+
 ////////////////////////////////////////////////////////////////////////
 #pragma mark - Class Methods
 ////////////////////////////////////////////////////////////////////////
@@ -95,7 +99,7 @@ static char playerRateContext;
     return [self initWithURL:nil];
 }
 - (void)shutdown{
-    AVPlayer *player = view.playerLayer.player;
+    AVPlayer *player = control.playerLayer.player;
     
     [self.playableDurationTimer invalidate];
     self.playableDurationTimer = nil;
@@ -107,8 +111,8 @@ static char playerRateContext;
     
     [self stopObservingPlayerTimeChanges];
     [player pause];
-    view.player =nil;
-    view = nil;
+    control.player = nil;
+    control = nil;
     
     [player removeObserver:self forKeyPath:@"rate"];
     [player removeObserver:self forKeyPath:@"currentItem"];
@@ -143,7 +147,7 @@ static char playerRateContext;
     NSLog(@"---DYMoviePlayer--dealloc----");
     
     
-    AVPlayer *player = view.playerLayer.player;
+    AVPlayer *player = control.playerLayer.player;
     
     [self.playableDurationTimer invalidate];
     self.playableDurationTimer = nil;
@@ -155,8 +159,9 @@ static char playerRateContext;
     
     [self stopObservingPlayerTimeChanges];
     [player pause];
-    view.player =nil;
-    view = nil;
+    
+    control.player = nil;
+    control = nil;
     
     [player removeObserver:self forKeyPath:@"rate"];
     [player removeObserver:self forKeyPath:@"currentItem"];
@@ -191,7 +196,7 @@ static char playerRateContext;
         switch (status) {
             case AVPlayerStatusUnknown: {
                 [self stopObservingPlayerTimeChanges];
-                [self.view updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
+                [self.control updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
                 // TODO: Disable buttons & scrubber
                 break;
             }
@@ -208,13 +213,13 @@ static char playerRateContext;
                 
             case AVPlayerStatusFailed: {
                 [self stopObservingPlayerTimeChanges];
-                [self.view updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
+                [self.control updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
                 // TODO: Disable buttons & scrubber
                 break;
             }
         }
         
-        [self.view updateWithPlaybackStatus:self.playing];
+        [self.control updateWithPlaybackStatus:self.playing];
         
         if (_delegateFlags.didChangeStatus) {
             [self.delegate moviePlayer:self didChangeStatus:status];
@@ -222,7 +227,7 @@ static char playerRateContext;
     }
     
     else if (context == &playerItemDurationContext) {
-        [self.view updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
+        [self.control updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
     }
     
     else if (context == &playerCurrentItemContext) {
@@ -232,13 +237,13 @@ static char playerRateContext;
             [self stopObservingPlayerTimeChanges];
             // TODO: Disable buttons & scrubber
         } else {
-            [self.view updateWithPlaybackStatus:self.playing];
+            [self.control updateWithPlaybackStatus:self.playing];
             [self startObservingPlayerTimeChanges];
         }
     }
     
     else if (context == &playerRateContext) {
-        [self.view updateWithPlaybackStatus:self.playing];
+        [self.control updateWithPlaybackStatus:self.playing];
         
         if (_delegateFlags.didChangePlaybackRate) {
             [self.delegate moviePlayer:self didChangePlaybackRate:self.player.rate];
@@ -258,7 +263,7 @@ static char playerRateContext;
     [self.player pause];
     
     _seekToInitialPlaybackTimeBeforePlay = YES;
-    [self.view moviePlayerDidEndToPlay];
+    [self.control moviePlayerDidEndToPlay];
     
     if (_delegateFlags.didFinishPlayback) {
         [self.delegate moviePlayer:self didFinishPlaybackOfURL:self.URL];
@@ -364,7 +369,7 @@ static char playerRateContext;
     // New playerItem?
     if (self.player.currentItem != self.playerItem) {
         [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
-        [self.view updateWithPlaybackStatus:self.playing];
+        [self.control updateWithPlaybackStatus:self.playing];
     }
 }
 - (void)startObservingPlayerTimeChanges {
@@ -377,7 +382,7 @@ static char playerRateContext;
                                                                            
                                                                            if (weakSelf != nil && [weakSelf isKindOfClass:[DYMoviePlayer class]]) {
                                                                                if (CMTIME_IS_VALID(weakSelf.player.currentTime) && CMTIME_IS_VALID(weakSelf.CMDuration)) {
-                                                                                   [weakSelf.view updateWithCurrentTime:weakSelf.currentPlaybackTime
+                                                                                   [weakSelf.control updateWithCurrentTime:weakSelf.currentPlaybackTime
                                                                                                                  duration:weakSelf.duration];
                                                                                    
                                                                                    [weakSelf moviePlayerDidUpdateCurrentPlaybackTime:weakSelf.currentPlaybackTime];
@@ -405,12 +410,12 @@ static char playerRateContext;
 #pragma mark - NGMoviePlayer Properties
 ////////////////////////////////////////////////////////////////////////
 - (AVPlayer *)player {
-    return self.view.playerLayer.player;
+    return self.control.playerLayer.player;
 }
 
 - (void)setPlayer:(AVPlayer *)player {
-    if (player != self.view.playerLayer.player) {
-        self.view.playerLayer.player = player;
+    if (player != self.control.playerLayer.player) {
+        self.control.playerLayer.player = player;
 //        self.view.delegate = self;
     }
 }
@@ -429,7 +434,7 @@ static char playerRateContext;
                 });
             }];
             //开始准备中
-            [self.view moviePlayerDidStartToPrepare];
+            [self.control moviePlayerDidStartToPrepare];
         }
     }
 }
@@ -441,9 +446,12 @@ static char playerRateContext;
 ////////////////////////////////////////////////////////////////////////
 #pragma mark - NGMoviePlayer Video Playback
 ////////////////////////////////////////////////////////////////////////
--(void)setView:(DYMoviePlayerView *)_view{
-    view = _view;
-    view.player =self;
+ 
+
+
+-(void)setControl:(id<DYMoviePlayerViewDelegate>)_control{
+    control = _control;
+    control.player =self;
 }
 - (void)play {
     if (self.player.status == AVPlayerStatusReadyToPlay) {
@@ -452,7 +460,7 @@ static char playerRateContext;
             
             [self.player seekToTime:time];
             
-            [self.view moviePlayerDidStartToPlay]; 
+            [self.control moviePlayerDidStartToPlay];
             
             if (_delegateFlags.didStartPlayback) {
                 [self.delegate moviePlayer:self didStartPlaybackOfURL:self.URL];
@@ -465,13 +473,13 @@ static char playerRateContext;
                 [self.delegate moviePlayerDidResumePlayback:self];
             }
             
-            [self.view moviePlayerDidResumePlayback];
+            [self.control moviePlayerDidResumePlayback];
             
         }
         
         [self.player play];
     } else {
-        [self.view moviePlayerDidStartToPrepare];
+        [self.control moviePlayerDidStartToPrepare];
         _autostartWhenReady = YES;
     }
     
@@ -496,7 +504,7 @@ static char playerRateContext;
     [self.playableDurationTimer invalidate];
     self.playableDurationTimer = nil;
     
-    [self.view moviePlayerDidPausePlayback];
+    [self.control moviePlayerDidPausePlayback];
     
     if (_delegateFlags.didPausePlayback) {
         [self.delegate moviePlayerDidPausePlayback:self];
@@ -512,10 +520,10 @@ static char playerRateContext;
 }
 
 - (void)updatePlayableDurationTimerFired:(NSTimer *)timer {
-    [self.view updatePlayableDurationTimerFired:self.playableDuration];
+    [self.control updatePlayableDurationTimerFired:self.playableDuration];
 }
 - (void)updateSpeedTimerFired:(NSTimer *)timer {
-    [self.view updateSpeedTimerFired:[self getBiteSpeed]];
+    [self.control updateSpeedTimerFired:[self getBiteSpeed]];
 }
  
 - (void)setDelegate:(id<DYMoviePlayerDelegate>)delegate {
@@ -544,12 +552,12 @@ static char playerRateContext;
 }
 
 - (void)setVideoGravity:(DYMoviePlayerVideoGravity)videoGravity {
-    self.view.playerLayer.videoGravity = DYAVLayerVideoGravityFromDYMoviePlayerVideoGravity(videoGravity); 
-    self.view.playerLayer.bounds = self.view.playerLayer.bounds;
+    self.control.playerLayer.videoGravity = DYAVLayerVideoGravityFromDYMoviePlayerVideoGravity(videoGravity);
+    self.control.playerLayer.bounds = self.control.playerLayer.bounds;
 }
 
 - (DYMoviePlayerVideoGravity)videoGravity {
-    return DYMoviePlayerVideoGravityFromAVLayerVideoGravity(self.view.playerLayer.videoGravity);
+    return DYMoviePlayerVideoGravityFromAVLayerVideoGravity(self.control.playerLayer.videoGravity);
 }
 
 - (void)setCurrentPlaybackTime:(NSTimeInterval)currentTime {
@@ -558,7 +566,7 @@ static char playerRateContext;
     
     CMTime time = CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC);
     [self.player seekToTime:time];
-    [self.view updateWithCurrentTime:currentTime duration:self.duration];
+    [self.control updateWithCurrentTime:currentTime duration:self.duration];
 }
 
 - (NSTimeInterval)currentPlaybackTime {

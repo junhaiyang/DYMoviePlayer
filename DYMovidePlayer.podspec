@@ -19,18 +19,9 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/junhaiyang/DYMovidePlayer.git' , :tag => '1.0'} 
  
   s.requires_arc = true
-  
-  s.subspec 'DYMovieLayout' do |ds|
-    
-    ds.source_files = 'player/DYMovieLayout/*.{h,m,mm}'   
-    		 
-  end 
-  
-  s.subspec 'DYMoviePlayer' do |ds|
-    
-    ds.source_files = 'player/DYMoviePlayer/*.{h,m,mm}'   
-    		 
-  end 
+   
+  s.source_files = 'player/*.{h,m,mm}'   
+    	 
    
  
 end

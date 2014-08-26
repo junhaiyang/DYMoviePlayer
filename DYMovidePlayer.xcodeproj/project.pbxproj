@@ -416,7 +416,7 @@
 				GCC_PREFIX_HEADER = "DYMovidePlayer/DYMovidePlayer-Prefix.pch";
 				INFOPLIST_FILE = "DYMovidePlayer/DYMovidePlayer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E4C7436D-69DF-4ECD-B874-CB7F5126405B";
+				PROVISIONING_PROFILE = "0056b0be-0515-47ec-a0ac-5ca01f153ad2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -432,7 +432,7 @@
 				GCC_PREFIX_HEADER = "DYMovidePlayer/DYMovidePlayer-Prefix.pch";
 				INFOPLIST_FILE = "DYMovidePlayer/DYMovidePlayer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E4C7436D-69DF-4ECD-B874-CB7F5126405B";
+				PROVISIONING_PROFILE = "0056b0be-0515-47ec-a0ac-5ca01f153ad2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
