@@ -195,13 +195,14 @@ static char playerRateContext;
         
         switch (status) {
             case AVPlayerStatusUnknown: {
-                [self stopObservingPlayerTimeChanges];
-                [self.control updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
+                NSLog(@"------AVPlayerStatusUnknown------");
+                [self stopObservingPlayerTimeChanges]; 
                 // TODO: Disable buttons & scrubber
                 break;
             }
                 
             case AVPlayerStatusReadyToPlay: {
+                NSLog(@"------AVPlayerStatusReadyToPlay------");
                 // TODO: Enable buttons & scrubber
                     if (self.autostartWhenReady) {
                         _autostartWhenReady = NO;
@@ -212,6 +213,13 @@ static char playerRateContext;
             }
                 
             case AVPlayerStatusFailed: {
+                NSLog(@"------AVPlayerStatusFailed------");
+                
+                NSString *errorMsg = [self.player.currentItem.error localizedFailureReason];
+                if(errorMsg==nil||errorMsg.length==0)
+                    errorMsg =[self.player.currentItem.error localizedDescription];
+                NSLog(@"%@",errorMsg);
+                
                 [self stopObservingPlayerTimeChanges];
                 [self.control updateWithCurrentTime:self.currentPlaybackTime duration:self.duration];
                 // TODO: Disable buttons & scrubber
@@ -263,11 +271,11 @@ static char playerRateContext;
     [self.player pause];
     
     _seekToInitialPlaybackTimeBeforePlay = YES;
-    [self.control moviePlayerDidEndToPlay];
-    
     if (_delegateFlags.didFinishPlayback) {
         [self.delegate moviePlayer:self didFinishPlaybackOfURL:self.URL];
     }
+    [self.control moviePlayerDidEndToPlay];
+    
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -328,6 +336,7 @@ static char playerRateContext;
     }
     
     [self setPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
+    
     
     // Observe status, ok -> play
     [self.playerItem addObserver:self
@@ -559,13 +568,28 @@ static char playerRateContext;
 - (DYMoviePlayerVideoGravity)videoGravity {
     return DYMoviePlayerVideoGravityFromAVLayerVideoGravity(self.control.playerLayer.videoGravity);
 }
-
+-(void)seek:(NSTimeInterval)currentTime  completionHandler:(void (^)(BOOL finished))completionHandler{
+    
+    currentTime = MAX(currentTime,0.);
+    currentTime = MIN(currentTime,self.duration);
+    
+    CMTime time = CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC);
+    
+    [self.player seekToTime:time completionHandler:^(BOOL finished) {
+        NSLog(@"------completionHandler start play,need stop loading-------");
+        if(completionHandler){
+            completionHandler(finished);
+        }
+    }];
+}
 - (void)setCurrentPlaybackTime:(NSTimeInterval)currentTime {
     currentTime = MAX(currentTime,0.);
     currentTime = MIN(currentTime,self.duration);
     
     CMTime time = CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC);
     [self.player seekToTime:time];
+    
+    
     [self.control updateWithCurrentTime:currentTime duration:self.duration];
 }
 

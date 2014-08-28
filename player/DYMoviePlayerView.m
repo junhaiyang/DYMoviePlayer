@@ -8,7 +8,7 @@
     BOOL _shouldHideControls;
 } 
 
-@property (nonatomic, strong) DYMoviePlayerLayerView *playerLayerView;
+@property (nonatomic, strong,readwrite) DYMoviePlayerLayerView *playerLayerView;
 
 @end
 
@@ -16,6 +16,7 @@
 
 @dynamic playerLayer; 
 @synthesize player=_player;
+@synthesize playerLayerView=_playerLayerView;
 
 ////////////////////////////////////////////////////////////////////////
 #pragma mark - Lifecycle

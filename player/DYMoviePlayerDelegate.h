@@ -4,6 +4,7 @@
 #import "DYMoviePlayerVideoGravity.h"
 
 @class DYMoviePlayer;
+@class DYMoviePlayerLayerView;
 
 @protocol DYMoviePlayerViewDelegate;
 
@@ -29,7 +30,7 @@
 
 @property (nonatomic, strong, readonly) AVPlayer *player;  //播放器
 
-@property (nonatomic, copy) NSURL *URL;                 //播放地址
+@property (nonatomic, strong) NSURL *URL;                 //播放地址
 
 @property (nonatomic, readonly, getter = isPlaying) BOOL playing; //是否是播放
 
@@ -59,6 +60,7 @@
 
 //播放控制
 - (void)play;
+- (void)seek:(NSTimeInterval)currentTime  completionHandler:(void (^)(BOOL finished))completionHandler;
 - (void)pause;
 - (void)togglePlaybackState;
 
@@ -69,6 +71,8 @@
 @protocol DYMoviePlayerViewDelegate <NSObject>
 
 @property (nonatomic, readonly) AVPlayerLayer *playerLayer;
+
+@property (nonatomic, readonly) DYMoviePlayerLayerView *playerLayerView;
 
 @property (nonatomic,weak) id<DYMoviePlayerActionDelegate> player;
 
